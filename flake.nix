@@ -6,7 +6,10 @@
   outputs = { self, nixpkgs }: {
     nixosConfigurations.astolfo = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [ ./configuration.nix ];
+      modules = [
+        ./configuration.nix
+        ./secrets/astolfo.nix
+      ];
     };
   };
 }
