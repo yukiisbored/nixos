@@ -57,6 +57,8 @@
     libinput.enable = true;
   };
 
+  services.trezord.enable = true;
+
   programs.steam.enable = true;
 
   environment = {
