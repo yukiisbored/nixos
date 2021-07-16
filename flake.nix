@@ -7,7 +7,8 @@
     nixosConfigurations.astolfo = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ./configuration.nix
+        ./modules/core.nix
+        ./modules/gayming.nix
         ./secrets/astolfo.nix
       ];
     };

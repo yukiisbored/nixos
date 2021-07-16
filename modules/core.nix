@@ -44,7 +44,11 @@
   services.xserver = {
     enable = true;
 
-    displayManager.gdm.enable = true;
+    displayManager.gdm = {
+      enable = true;
+      wayland = false;
+    };
+
     desktopManager.gnome.enable = true;
 
     layout = "us";
@@ -55,11 +59,9 @@
 
   services.trezord.enable = true;
 
-  programs.steam.enable = true;
-
   environment = {
     systemPackages = with pkgs; [
-      git stow ntfs3g lutris
+      git stow ntfs3g
     ];
 
     shells = with pkgs; [
