@@ -1,5 +1,5 @@
 {
-  description = "Yuki's NixOS configuration";
+  description = "Yuki's configuration for Nix systems";
 
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-21.05";
 
