@@ -69,11 +69,16 @@
     ];
   };
 
-  users.users = {
-    yuki = {
-      isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "vboxusers" ];
-      shell = pkgs.zsh;
+
+  users = {
+    mutableUsers = false;
+
+    users = {
+      yuki = {
+        isNormalUser = true;
+        extraGroups = [ "wheel" "networkmanager" "vboxusers" ];
+        shell = pkgs.zsh;
+      };
     };
   };
 
