@@ -6,10 +6,8 @@
     efi.canTouchEfiVariables = true;
   };
 
-  virtualisation.virtualbox.host = {
-    enable = true;
-    enableExtensionPack = true;
-  };
+  virtualisation.libvirtd.enable = true;
+  programs.dconf.enable = true;
 
   networking = {
     networkmanager.enable = true;
@@ -61,7 +59,7 @@
 
   environment = {
     systemPackages = with pkgs; [
-      git stow ntfs3g
+      git stow ntfs3g virt-manager
     ];
 
     shells = with pkgs; [
@@ -76,7 +74,7 @@
     users = {
       yuki = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "networkmanager" "vboxusers" ];
+        extraGroups = [ "wheel" "networkmanager" "libvirtd" ];
         shell = pkgs.zsh;
       };
     };
