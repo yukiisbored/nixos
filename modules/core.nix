@@ -9,6 +9,8 @@
   virtualisation.libvirtd.enable = true;
   programs.dconf.enable = true;
 
+  virtualisation.docker.enable = true;
+
   networking = {
     networkmanager.enable = true;
     firewall.enable = true;
@@ -74,7 +76,7 @@
     users = {
       yuki = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "networkmanager" "libvirtd" ];
+        extraGroups = [ "wheel" "networkmanager" "libvirtd" "docker" ];
         shell = pkgs.zsh;
       };
     };
