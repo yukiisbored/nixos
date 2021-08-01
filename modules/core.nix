@@ -51,7 +51,7 @@
 
   environment = {
     systemPackages = with pkgs; [
-      git stow ntfs3g
+      git stow ntfs3g unzip zip
     ];
 
     shells = with pkgs; [
