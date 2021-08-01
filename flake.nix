@@ -13,6 +13,7 @@
         impermanence.nixosModules.impermanence
         ./modules/core.nix
         ./modules/gayming.nix
+        ./modules/vm.nix
         ./secrets/astolfo.nix
       ];
     };

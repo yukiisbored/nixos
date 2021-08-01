@@ -1,11 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  virtualisation.libvirtd.enable = true;
-  programs.dconf.enable = true;
-
-  virtualisation.docker.enable = true;
-
   networking = {
     networkmanager.enable = true;
     firewall.enable = true;
@@ -56,7 +51,7 @@
 
   environment = {
     systemPackages = with pkgs; [
-      git stow ntfs3g virt-manager
+      git stow ntfs3g
     ];
 
     shells = with pkgs; [
@@ -71,7 +66,7 @@
     users = {
       yuki = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "networkmanager" "libvirtd" "docker" ];
+        extraGroups = [ "wheel" "networkmanager" ];
         shell = pkgs.zsh;
       };
     };
