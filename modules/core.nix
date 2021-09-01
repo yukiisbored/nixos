@@ -61,7 +61,7 @@
 
   environment = {
     systemPackages = with pkgs; [
-      git stow ntfs3g unzip zip
+      git stow ntfs3g unzip zip pciutils ncpamixer
     ];
 
     shells = with pkgs; [
