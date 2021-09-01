@@ -1,6 +1,8 @@
 { config, pkgs, lib, ... }:
 
 {
+  boot.kernelParams = [ "net.ifnames=0" ];
+
   networking = {
     networkmanager.enable = true;
     firewall.enable = true;
