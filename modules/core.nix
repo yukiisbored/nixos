@@ -39,7 +39,15 @@
       wayland = false;
     };
 
-    desktopManager.gnome.enable = true;
+    desktopManager.session = [
+      {
+        name = "home-manager";
+        start = ''
+          ${pkgs.runtimeShell} $HOME/.xsession &
+          waitPID=$!
+        '';
+      }
+    ];
 
     layout = "us";
     xkbVariant = "altgr-intl";
