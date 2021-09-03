@@ -31,6 +31,7 @@
   hardware = {
     pulseaudio.enable = true;
     opengl.driSupport32Bit = true;
+    logitech.wireless.enable = true;
   };
 
   services.xserver = {
@@ -61,7 +62,7 @@
 
   environment = {
     systemPackages = with pkgs; [
-      git stow ntfs3g unzip zip pciutils ncpamixer
+      git stow ntfs3g unzip zip pciutils ncpamixer ltunify
     ];
 
     shells = with pkgs; [
