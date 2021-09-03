@@ -5,6 +5,7 @@
     (modulesPath + "/profiles/all-hardware.nix")
     (modulesPath + "/installer/scan/detected.nix")
     (modulesPath + "/installer/scan/not-detected.nix")
+    (modulesPath + "/installer/cd-dvd/iso-image.nix")
   ];
 
   boot.supportedFilesystems = [ "btrfs" "reiserfs" "vfat" "f2fs" "xfs" "zfs" "ntfs" "cifs" ];
@@ -59,20 +60,6 @@
     xfsprogs.bin
     jfsutils
     f2fs-tools
-
-    emacs
-
-    tmux
-    silver-searcher
-
-    git-lfs
-    git-crypt
-    trezor_agent
-    gnupg
-    age
-
-    ungoogled-chromium
-    tor-browser-bundle-bin
   ];
 
   system.extraDependencies = with pkgs; [
@@ -81,4 +68,9 @@
     busybox
     jq
   ];
+
+  isoImage = {
+    makeEfiBootable = true;
+    makeUsbBootable = true;
+  };
 }

@@ -4,6 +4,11 @@
   inputs = {
     utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-21.05";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-21.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    dot.url = "github:yukiisbored/dot";
     impermanence.url = "github:nix-community/impermanence";
     nixos-generators.url = "github:nix-community/nixos-generators";
     pbp = {
@@ -12,7 +17,7 @@
     };
   };
 
-  outputs = { self, utils, nixpkgs, impermanence, nixos-generators, pbp }:
+  outputs = { self, utils, nixpkgs, impermanence, nixos-generators, pbp, home-manager, dot }:
  {
     nixosConfigurations.astolfo = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -30,6 +35,16 @@
       modules = [
         ./modules/core.nix
         ./modules/live.nix
+
+        {
+          nixpkgs.overlays = dot.overlays.x86_64-linux;
+        }
+
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.yuki = dot.homeConfigurations.x86_64-linux.desktop;
+        }
       ];
     };
 
