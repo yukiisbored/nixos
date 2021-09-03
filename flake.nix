@@ -6,9 +6,14 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-21.05";
     impermanence.url = "github:nix-community/impermanence";
     nixos-generators.url = "github:nix-community/nixos-generators";
+    pbp = {
+      url = "github:samueldr/wip-pinebook-pro";
+      flake = false;
+    };
   };
 
-  outputs = { self, utils, nixpkgs, impermanence, nixos-generators }: {
+  outputs = { self, utils, nixpkgs, impermanence, nixos-generators, pbp }:
+ {
     nixosConfigurations.astolfo = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -27,7 +32,47 @@
         ./modules/live.nix
       ];
     };
-  } // utils.lib.eachDefaultSystem (system:
+
+    # XXX: Broken
+    nixosConfigurations.amnesiac = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      modules = [
+        ./modules/core.nix
+        ./secrets/amnesiac.nix
+
+        (import "${pbp}/pinebook_pro.nix")
+
+        ({ config, modulesPath, ... }:
+          {
+            imports = [ (modulesPath + "/installer/sd-card/sd-image.nix") ];
+
+            # FIXME: Check if we need to have `crossSystem'.
+            nixpkgs.crossSystem = {
+              system = "aarch64-linux";
+            };
+
+            boot = {
+              loader = {
+                grub.enable = false;
+                generic-extlinux-compatible.enable = true;
+              };
+              consoleLogLevel = 0;
+              kernelParams = ["console=ttyS0,115200n8" "console=tty0"];
+            };
+
+            sdImage = {
+              populateFirmwareCommands = "";
+              populateRootCommands = ''
+                mkdir -p ./files/boot
+                ${config.boot.loader.generic-extlinux-compatible.populateCmd} -c ${config.system.build.toplevel} -d ./files/boot
+              '';
+            };
+          })
+      ];
+    };
+  }
+  //
+  utils.lib.eachDefaultSystem (system:
     let
       pkgs = import nixpkgs {
         inherit system;

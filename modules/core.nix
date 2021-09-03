@@ -30,7 +30,6 @@
   sound.enable = true;
   hardware = {
     pulseaudio.enable = true;
-    opengl.driSupport32Bit = true;
     logitech.wireless.enable = true;
   };
 
