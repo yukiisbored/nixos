@@ -55,6 +55,27 @@
         "type": "github"
       }
     },
+    "hm": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1630076227,
+        "narHash": "sha256-p3YdtqSPLnMudWsLMgd6XMEhQKB2oz1hvDkHtOlz5/Q=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "f5adb9be829f487f99bcc0f1884f74ddb85f70c8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "release-21.05",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -67,27 +88,6 @@
         "owner": "nix-community",
         "repo": "home-manager",
         "rev": "9f2b766d0f46fcc87881531e6a86eba514b8260d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "ref": "release-21.05",
-        "repo": "home-manager",
-        "type": "github"
-      }
-    },
-    "home-manager_2": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1630076227,
-        "narHash": "sha256-p3YdtqSPLnMudWsLMgd6XMEhQKB2oz1hvDkHtOlz5/Q=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "f5adb9be829f487f99bcc0f1884f74ddb85f70c8",
         "type": "github"
       },
       "original": {
@@ -127,40 +127,6 @@
       "original": {
         "owner": "nmattia",
         "repo": "naersk",
-        "type": "github"
-      }
-    },
-    "nixlib": {
-      "locked": {
-        "lastModified": 1624753224,
-        "narHash": "sha256-ZUEcPzgU1w8ZYeEgfcpzeciYcZShQZbEfRN2tV+K2yQ=",
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
-        "rev": "7b4dc08734c5c4703b22b9c780417042e1c8f020",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
-        "type": "github"
-      }
-    },
-    "nixos-generators": {
-      "inputs": {
-        "nixlib": "nixlib",
-        "nixpkgs": "nixpkgs_4"
-      },
-      "locked": {
-        "lastModified": 1624973746,
-        "narHash": "sha256-11JbJRduNwyf556gndGErR5/12ceyHOHBfEuha5Vws4=",
-        "owner": "nix-community",
-        "repo": "nixos-generators",
-        "rev": "022ef440af8dc237ab1f59fa363cb1e25783ec3e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nixos-generators",
         "type": "github"
       }
     },
@@ -226,22 +192,6 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1619285658,
-        "narHash": "sha256-GKbj/KKo8Z2WsEURFtWHbPI917NrUnD4H2J4lKUsSWI=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "118485230c02d13f62133bce43177ffd49495694",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_5": {
-      "locked": {
         "lastModified": 1630481079,
         "narHash": "sha256-leWXLchbAbqOlLT6tju631G40SzQWPqaAXQG3zH1Imw=",
         "owner": "nixos",
@@ -253,22 +203,6 @@
         "owner": "nixos",
         "ref": "nixos-21.05",
         "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "pbp": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1622572024,
-        "narHash": "sha256-mUKF/Tk+95TYeBLyApxsyCi98RhbkX9EFKAo6weUpiM=",
-        "owner": "samueldr",
-        "repo": "wip-pinebook-pro",
-        "rev": "748f247ba13054114e98e7cc216b308da3b9ddf0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "samueldr",
-        "repo": "wip-pinebook-pro",
         "type": "github"
       }
     },
@@ -295,11 +229,9 @@
     "root": {
       "inputs": {
         "dot": "dot",
-        "home-manager": "home-manager_2",
+        "hm": "hm",
         "impermanence": "impermanence",
-        "nixos-generators": "nixos-generators",
-        "nixpkgs": "nixpkgs_5",
-        "pbp": "pbp",
+        "nixpkgs": "nixpkgs_4",
         "utils": "utils_3"
       }
     },
