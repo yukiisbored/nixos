@@ -21,5 +21,5 @@ installation process, run the following command to build the iso
 image:
 
 ```console
-$ nix build '.#nixosConfigurations.live.config.system.build.isoImage'
+$ nix build '.#nixosConfigurations.amnesiac.config.system.build.isoImage'
 ```

@@ -60,6 +60,8 @@
     xfsprogs.bin
     jfsutils
     f2fs-tools
+
+    tor-browser-bundle-bin
   ];
 
   system.extraDependencies = with pkgs; [
@@ -68,6 +70,8 @@
     busybox
     jq
   ];
+
+  networking.wireguard.enable = true;
 
   isoImage = {
     makeEfiBootable = true;
