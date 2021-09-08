@@ -4,6 +4,7 @@
   inputs = {
     utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-21.05";
+    nixpkgsTCC.url = "github:blitz/nixpkgs/tuxedo-control-center";
     impermanence.url = "github:nix-community/impermanence";
     hm = {
       url = "github:nix-community/home-manager/release-21.05";
@@ -12,12 +13,26 @@
     dot.url = "github:yukiisbored/dot";
   };
 
-  outputs = { self, utils, nixpkgs, impermanence, hm, dot }:
+  outputs = { self, utils, nixpkgs, nixpkgsTCC, impermanence, hm, dot }:
     {
       nixosConfigurations.astolfo = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           impermanence.nixosModules.impermanence
+
+          ({ pkgs, ...}:
+            let
+              pkgs' = import nixpkgsTCC { system = "x86_64-linux"; };
+            in {
+              imports = [
+                (nixpkgsTCC + "/nixos/modules/hardware/tuxedo-control-center.nix")
+              ];
+
+              nixpkgs.overlays =[
+                (self: super: { tuxedo-control-center = pkgs'.tuxedo-control-center; })
+              ];
+            })
+
           ./modules/core.nix
           ./modules/gayming.nix
           ./modules/vm.nix

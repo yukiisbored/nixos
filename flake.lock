@@ -146,6 +146,22 @@
         "type": "github"
       }
     },
+    "nixpkgsTCC": {
+      "locked": {
+        "lastModified": 1630433560,
+        "narHash": "sha256-ocrfEYQCTHoSPIeyIWPrlbmYmiLoavrv5/mxpo+j1CY=",
+        "owner": "blitz",
+        "repo": "nixpkgs",
+        "rev": "5da11a2ca1bb95d1defd6c0ccda73106af3971e6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "blitz",
+        "ref": "tuxedo-control-center",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgsUnstable": {
       "locked": {
         "lastModified": 1629880049,
@@ -232,6 +248,7 @@
         "hm": "hm",
         "impermanence": "impermanence",
         "nixpkgs": "nixpkgs_4",
+        "nixpkgsTCC": "nixpkgsTCC",
         "utils": "utils_3"
       }
     },
