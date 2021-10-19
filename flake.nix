@@ -40,6 +40,15 @@
         ];
       };
 
+      nixosConfigurations.neru = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          impermanence.nixosModules.impermanence
+          ./modules/core.nix
+          ./secrets/neru.nix
+        ];
+      };
+
       nixosConfigurations.amnesiac = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
