@@ -78,6 +78,7 @@
     ];
   };
 
+  virtualisation.docker.enable = true;
 
   users = {
     mutableUsers = false;
@@ -85,7 +86,7 @@
     users = {
       yuki = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "networkmanager" ];
+        extraGroups = [ "wheel" "networkmanager" "docker" ];
         shell = pkgs.zsh;
       };
     };
