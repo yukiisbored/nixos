@@ -3,18 +3,18 @@
 
   inputs = {
     utils.url = "github:numtide/flake-utils";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-21.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
     impermanence.url = "github:nix-community/impermanence";
   };
 
   outputs = { self, utils, nixpkgs, impermanence }:
     {
-      nixosConfigurations.astolfo = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.usagiyama = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           impermanence.nixosModules.impermanence
           ./modules/core.nix
-          ./secrets/astolfo.nix
+          ./secrets/usagiyama.nix
         ];
       };
     };

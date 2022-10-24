@@ -1,7 +1,10 @@
 { config, pkgs, lib, ... }:
 
 {
-  boot.kernelParams = [ "net.ifnames=0" ];
+  boot = {
+    kernelParams = [ "net.ifnames=0" ];
+    plymouth.enable = true;
+  };
 
   networking = {
     networkmanager.enable = true;
@@ -40,25 +43,16 @@
     jack.enable = true;
   };
 
-  hardware.logitech.wireless.enable = true;
+  hardware = {
+    pulseaudio.enable = false;
+    logitech.wireless.enable = true;
+  };
 
   services.xserver = {
     enable = true;
 
-    displayManager.gdm = {
-      enable = true;
-      wayland = false;
-    };
-
-    desktopManager.session = [
-      {
-        name = "home-manager";
-        start = ''
-          ${pkgs.runtimeShell} $HOME/.xsession &
-          waitPID=$!
-        '';
-      }
-    ];
+    desktopManager.gnome.enable = true;
+    displayManager.gdm.enable = true;
 
     layout = "us";
     xkbVariant = "altgr-intl";
@@ -92,5 +86,5 @@
     };
   };
 
-  system.stateVersion = "21.05";
+  system.stateVersion = "22.05";
 }
