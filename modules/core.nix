@@ -63,6 +63,7 @@
   services = {
     trezord.enable = true;
     touchegg.enable = true;
+    gnome.chrome-gnome-shell.enable = true;
   };
 
   environment = {
