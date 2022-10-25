@@ -60,7 +60,10 @@
     libinput.enable = true;
   };
 
-  services.trezord.enable = true;
+  services = {
+    trezord.enable = true;
+    touchegg.enable = true;
+  };
 
   environment = {
     systemPackages = with pkgs; [
