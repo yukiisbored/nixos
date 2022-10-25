@@ -49,7 +49,10 @@
     enable = true;
 
     desktopManager.gnome.enable = true;
-    displayManager.gdm.enable = true;
+    displayManager.gdm = {
+      enable = true;
+      wayland = false;
+    };
 
     layout = "us";
     xkbVariant = "altgr-intl";
