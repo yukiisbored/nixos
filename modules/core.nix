@@ -84,7 +84,7 @@
     users = {
       yuki = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "networkmanager" "docker" ];
+        extraGroups = [ "wheel" "networkmanager" "docker" "dialout" ];
         shell = pkgs.zsh;
       };
     };
