@@ -17,5 +17,14 @@
           ./secrets/usagiyama.nix
         ];
       };
+
+      nixosConfigurations.astolfo = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          impermanence.nixosModules.impermanence
+          ./modules/core.nix
+          ./secrets/astolfo.nix
+        ];
+      };
     };
 }
