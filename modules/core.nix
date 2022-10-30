@@ -66,6 +66,8 @@
     gnome.chrome-gnome-shell.enable = true;
   };
 
+  programs.steam.enable = true;
+
   environment = {
     systemPackages = with pkgs; [
       git stow ntfs3g unzip zip pciutils ncpamixer ltunify
