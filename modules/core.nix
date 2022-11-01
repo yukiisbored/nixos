@@ -22,7 +22,7 @@
       experimental-features = nix-command flakes
     '';
 
-    trustedUsers = [ "root" "@wheel" ];
+    settings.trusted-users = [ "root" "@wheel" ];
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -48,8 +48,11 @@
   services.xserver = {
     enable = true;
 
-    desktopManager.plasma5.enable = true;
-    displayManager.sddm.enable = true;
+    desktopManager.pantheon.enable = true;
+    displayManager.lightdm = {
+      enable = true;
+      greeters.pantheon.enable = true;
+    };
 
     layout = "us";
     xkbVariant = "altgr-intl";
@@ -57,11 +60,7 @@
     libinput.enable = true;
   };
 
-  services = {
-    trezord.enable = true;
-    touchegg.enable = true;
-    gnome.chrome-gnome-shell.enable = true;
-  };
+  services.trezord.enable = true;
 
   programs.steam.enable = true;
 
