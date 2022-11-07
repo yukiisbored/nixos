@@ -48,10 +48,10 @@
   services.xserver = {
     enable = true;
 
-    desktopManager.pantheon.enable = true;
-    displayManager.lightdm = {
+    desktopManager.gnome.enable = true;
+    displayManager.gdm = {
       enable = true;
-      greeters.pantheon.enable = true;
+      wayland = false;
     };
 
     layout = "us";
@@ -60,7 +60,11 @@
     libinput.enable = true;
   };
 
-  services.trezord.enable = true;
+  services = {
+    trezord.enable = true;
+    touchegg.enable = true;
+    gnome.chrome-gnome-shell.enable = true;
+  };
 
   programs.steam.enable = true;
 
